@@ -1,2 +1,0 @@
-- Convert the getRef function to use callbacks
-- Update the method for inserting URLs so that http:// is added if it is not present in the supplied URL
