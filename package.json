@@ -12,6 +12,7 @@
   "dependencies": {
     "express": "^4.14.1",
     "mongod": "^2.0.0",
+    "mongodb": "^2.2.24",
     "mongodb-core": "^2.1.8"
   }
 }
