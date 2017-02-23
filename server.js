@@ -3,8 +3,8 @@ var app = express();
 var port = process.argv[2] || process.env.PORT;
 var mongo = require('mongodb').MongoClient;
 var path = require("path");
-var DBurl = 'mongodb://localhost:27017/url-shortener';
-var appURL = 'https://npm-chrismclean.c9users.io/';
+var DBurl = process.env.MONGOLAB_URI;
+var appURL = 'https://fcc-short-url.herokuapp.com/';
 
 function getRandomRef() {
   return Math.random().toString(36).replace(/[^a-z]+/g, '').substr(0, 6);
@@ -84,7 +84,7 @@ function insertNewUrl(url, res) {
   var urlJSON = {};
   urlJSON.ref = getUniqueRef();
   urlJSON.url = url;
-  console.log('adding new element to DB - ' + JSON.stringify(urlJSON));
+  console.log('adding new element to DB - ' + JSON.stringify(urlJSON) + ' DB URL is ' + DBurl);
   mongo.connect(DBurl, function(err, db) {
     if (err) throw err
     var collection = db.collection('shortURLs')
