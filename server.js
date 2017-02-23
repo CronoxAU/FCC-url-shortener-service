@@ -13,12 +13,6 @@ function getRandomRef() {
 function getUniqueRef() {
   var uniqueRef = getRandomRef();
   console.log('getting a unique ref')
-    //generate a phsudo random 6 character string to use as a new refrence
-    //verify it does not already exist in the database before returning it
-    //while (getUrl(uniqueRef) !== undefined) {
-    //  console.log('in loop, ref is ' + uniqueRef)
-    //  uniqueRef = getRandomRef();
-    //}
   return uniqueRef
 }
 
@@ -121,7 +115,6 @@ function validUrl(url) {
 }
 
 app.get('/new/:url*', function(req, res) {
-  //var input = req.params.input;
   var input = req.url.slice(5);
   console.log('recieved input - ' + input)
     //parse the input and verify that the supplied string is a new URL. Otherwise return the usage page
